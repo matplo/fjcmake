@@ -25,6 +25,7 @@ spath = os.path.dirname(os.path.abspath(__file__))
 import sys
 sys.path.append(os.path.abspath("{}/build/python/CMakeSwig/fastjet/".format(spath)))
 sys.path.append(os.path.abspath("{}/build/python/CMakeSwig/recursivetools/".format(spath)))
+sys.path.append(os.path.abspath("{}/build/python/CMakeSwig/RecursiveTools/".format(spath)))
 
 import pyfastjet as fj
 import pyrecursivetools as rt

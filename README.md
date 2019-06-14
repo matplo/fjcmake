@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-- this is put together using the excellent https://github.com/Mizux/cmake-swig (a complete example of how to create a Modern [CMake](https://cmake.org/) C++ Project with the [SWIG](http://www.swig.org) code generator to generate wrapper and package for Python, .Net and Java.) - note, some doc left on purpose
+- this is put together using the excellent https://github.com/Mizux/cmake-swig (a complete example of how to create a Modern [CMake](https://cmake.org/) C++ Project with the [SWIG](http://www.swig.org) code generator - wrappers for Python, .Net and Java.) - note, some doc left on purpose
 - still needs work but main idea of having things in python is working (FastJet with CMake + python (SWIG) bindings)
 
 - contains *unmodified* [FastJet ver. 3.3.2](http://www.fastjet.fr/)
