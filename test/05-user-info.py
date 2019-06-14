@@ -70,13 +70,13 @@ def main():
         sd = rt.SoftDrop(0, 0.1, 1.0)
         for i,j in enumerate(jets):
             j_rc = rc.result(j)
-            print('- [{}] orig pT: {} reclustered pT: {}'.format(i, j.perp(), j_rc.perp()))
+            print('- [{0:3d}] orig pT={1:10.3f} reclustered pT={2:10.3f}'.format(i, j.perp(), j_rc.perp()))
             j_sd = sd.result(j)
             # j_sd.structure_of<fj.contrib.SoftDrop>().delta_R()
             # print(j_sd.python_info())
-            print('  |-> after soft drop pT: {} delta = {}'.format(j_sd.perp(), j_sd.perp() - j.perp()))
+            print('  |-> after soft drop pT={0:10.3f} delta={1:10.3f}'.format(j_sd.perp(), j_sd.perp() - j.perp()))
             sd_info = rt.get_SD_jet_info(j_sd)
-            print("  |-> SD jet params z={} dR={} mu={}".format(sd_info.z, sd_info.dR, sd_info.mu))
+            print("  |-> SD jet params z={0:10.3f} dR={1:10.3f} mu={2:10.3f}".format(sd_info.z, sd_info.dR, sd_info.mu))
 
 #----------------------------------------------------------------------
 def print_jets(jets):
