@@ -73,7 +73,7 @@ def main():
             j_sd = sd.result(j)
             # j_sd.structure_of<fj.contrib.SoftDrop>().delta_R()
             # print(j_sd.python_info())
-            print('  |-> after soft drop pT: {}'.format(j.perp(), j_sd.perp()))
+            print('  |-> after soft drop pT: {} delta = {}'.format(j_sd.perp(), j_sd.perp() - j.perp()))
             sd_info = rt.get_SD_jet_info(j_sd)
             print("  |-> SD jet params z={} dR={} mu={}".format(sd_info.z, sd_info.dR, sd_info.mu))
 
