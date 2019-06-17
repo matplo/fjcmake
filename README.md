@@ -27,6 +27,6 @@ cd fjcmake/test
 
 ### Notes
 
-The above needs `pythia8-config` in $PATH. 
+The above needs `pythia8-config` in $PATH to compile `pythiafjtools`. Note, the example `pythia_gen_fj_plot.ipynb` needs PYTHIA.
 
 For a quick install of PYTHIA8 source `local_pythia_install.sh` (source everytime before `build_here.sh`).
