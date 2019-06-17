@@ -4,6 +4,7 @@ endif()
 
 add_subdirectory(fastjet)
 add_subdirectory(recursivetools)
+add_subdirectory(pythiafjtools)
 
 # Install
 include(GNUInstallDirs)

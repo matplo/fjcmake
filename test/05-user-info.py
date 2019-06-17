@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Illustration of the assignment of pythonic user information to PseudoJets:
 
   - the script has a ParticleInfo class, to store information about particles

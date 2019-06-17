@@ -14,8 +14,8 @@ include(UseSWIG)
 # prefer Python 3.7 over 3.6 over ...
 # user can overwrite it e.g.:
 # cmake -H. -Bbuild -DBUILD_PYTHON=ON -DPython_ADDITIONAL_VERSIONS="2.7"
-# set(Python_ADDITIONAL_VERSIONS "3.7;3.6;3.5;2.7" CACHE STRING "Python to use for binding")
-set(Python_ADDITIONAL_VERSIONS "2.7" CACHE STRING "Python to use for binding")
+set(Python_ADDITIONAL_VERSIONS "3.7;3.6;3.5;2.7" CACHE STRING "Python to use for binding")
+# set(Python_ADDITIONAL_VERSIONS "2.7" CACHE STRING "Python to use for binding")
 find_package(PythonInterp REQUIRED)
 message(STATUS "Found Python: ${PYTHON_EXECUTABLE} (found version \"${PYTHON_VERSION_STRING}\")")
 
@@ -27,6 +27,7 @@ message(STATUS "Found Python Include: ${PYTHON_INCLUDE_DIRS} (found version \"${
 
 add_subdirectory(fastjet/python)
 add_subdirectory(recursivetools/python)
+add_subdirectory(pythiafjtools/python)
 
 # Find if python module MODULE_NAME is available, if not install it to the Python user install
 # directory.
@@ -55,6 +56,7 @@ endfunction()
 configure_file(cmake/__init__.py.in python/${PROJECT_NAME}/__init__.py COPYONLY)
 configure_file(cmake/__init__.py.in python/${PROJECT_NAME}/fastjet/__init__.py COPYONLY)
 configure_file(cmake/__init__.py.in python/${PROJECT_NAME}/recursivetools/__init__.py COPYONLY)
+configure_file(cmake/__init__.py.in python/${PROJECT_NAME}/pythiafjtools/__init__.py COPYONLY)
 
 # To use a cmake generator expression (aka $<>), it must be processed at build time
 # i.e. inside a add_custom_command()
@@ -86,6 +88,7 @@ add_custom_command(OUTPUT setup.py dist ${PROJECT_NAME}.egg-info
 	COMMAND ${CMAKE_COMMAND} -E echo "  '${PROJECT_NAME}':[$<$<NOT:$<PLATFORM_ID:Windows>>:'.libs/*'>]," >> setup.py
 	COMMAND ${CMAKE_COMMAND} -E echo "  '${PROJECT_NAME}.fastjet':['$<TARGET_FILE_NAME:pyfastjet>']," >> setup.py
 	COMMAND ${CMAKE_COMMAND} -E echo "  '${PROJECT_NAME}.recursivetools':['$<TARGET_FILE_NAME:pyrecursivetools>']," >> setup.py
+	COMMAND ${CMAKE_COMMAND} -E echo "  '${PROJECT_NAME}.pythiafjtools':['$<TARGET_FILE_NAME:pypythiafjtools>']," >> setup.py
 	COMMAND ${CMAKE_COMMAND} -E echo "  }," >> setup.py
 	COMMAND ${CMAKE_COMMAND} -E echo "  include_package_data=True," >> setup.py
 	COMMAND ${CMAKE_COMMAND} -E echo "  classifiers=[" >> setup.py
@@ -116,6 +119,8 @@ add_custom_target(bdist ALL
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:fastjet> ${PROJECT_NAME}/.libs
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:pyrecursivetools> ${PROJECT_NAME}/recursivetools
 	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:recursivetools> ${PROJECT_NAME}/.libs
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:pypythiafjtools> ${PROJECT_NAME}/pythiafjtools
+	COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:pythiafjtools> ${PROJECT_NAME}/.libs
 	#COMMAND ${PYTHON_EXECUTABLE} setup.py bdist bdist_wheel
 	COMMAND ${PYTHON_EXECUTABLE} setup.py bdist_wheel
 	WORKING_DIRECTORY python
