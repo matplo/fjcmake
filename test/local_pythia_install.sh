@@ -15,8 +15,12 @@ if [ ! -d ${pydirinst} ]; then
 	    python_inc_dir=$(python3-config --includes | cut -d' ' -f 1 | cut -dI -f 2)
 	    python_exec=$(which python3)
 	    python_bin_dir=$(dirname ${python_exec})
+	    echo "python exec: ${python_exec}"
+	    echo "python include: ${python_inc_dir}"
+	    echo "python bin dir: ${python_bin_dir}"
 		./configure --prefix=${pydirinst} \
-			--with-python-include=${python_inc_dir} --with-python-bin=${python_bin_dir}
+			--with-python-include=${python_inc_dir} \
+			--with-python-bin=${python_bin_dir}
 		make -j && make install
 		cd -
 	fi
