@@ -1,4 +1,5 @@
 #include <PythiaFJTools/vectorize.hh>
+#include <cmath>
 
 namespace pythiafjtools{
 
@@ -18,6 +19,19 @@ std::vector<fastjet::PseudoJet> vectorize(const Pythia8::Pythia &pythia, bool on
 		}
 	}
 	return v;
+}
+
+double angularity(const fastjet::PseudoJet &j, double alpha, double scaleR0)
+{
+	double _ang = 0;
+	const std::vector<fastjet::PseudoJet> &_cs = j.constituents();
+	for (unsigned int i = 0; i < _cs.size(); i++)
+	{
+		const fastjet::PseudoJet &_p = _cs[i];
+		_ang += _p.perp() * pow(_p.delta_R(j) / scaleR0 , 2. - alpha);
+	}
+	_ang /= j.perp();
+	return _ang;
 }
 
 }

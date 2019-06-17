@@ -12,6 +12,5 @@
 %}
 
 // Process symbols in header
-// %nodefaultctor Recluster;
 
 %include "PythiaFJTools/vectorize.hh"
