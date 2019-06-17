@@ -12,13 +12,21 @@
 
 - tested with SWIG 4.0
 - cmake 3.14.4
-- CGAL 13.0.3 + BOOST 1.69.00
-- currenly enabled only for python 2.7 - ought to work with 3.x - (see cmake/python.cmake)
+- CGAL 13.0.3 + BOOST 1.69.00 (also tested with cgal (and boost) installed with brew `brew install cgal`)
+- ought to work with any 2.7> python - (see cmake/python.cmake)
+- this is in development so installation needs improvement - see below for a local install
 
 ## Handy quick start
+
 ```
 git clone git@github.com:matplo/fjcmake.git
 cd fjcmake/test
 ./build_here.sh
 ./05-user-info.py
 ```
+
+### Notes
+
+The above needs `pythia8-config` in $PATH. 
+
+For a quick install of PYTHIA8 source `local_pythia_install.sh` (source everytime before `build_here.sh`).
