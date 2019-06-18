@@ -1,4 +1,4 @@
-#include <PythiaFJTools/vectorize.hh>
+#include <PythiaFJTools/pyfjtools.hh>
 #include <cmath>
 
 namespace pythiafjtools{

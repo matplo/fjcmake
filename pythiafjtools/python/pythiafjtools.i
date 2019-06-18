@@ -8,9 +8,9 @@
 %{
 #include <fastjet/PseudoJet.hh>
 #include <Pythia8/Pythia.h>
-#include <PythiaFJTools/vectorize.hh>
+#include <PythiaFJTools/pyfjtools.hh>
 %}
 
 // Process symbols in header
 
-%include "PythiaFJTools/vectorize.hh"
+%include "PythiaFJTools/pyfjtools.hh"

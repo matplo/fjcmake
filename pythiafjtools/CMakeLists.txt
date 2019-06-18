@@ -10,11 +10,11 @@ set(PYTHIA8_LDFLAGS "${PYTHIA8_LDFLAGS} -ldl")
 
 target_sources(pythiafjtools
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/PythiaFJTools/vectorize.hh>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/PythiaFJTools/pyfjtools.hh>
 
-    $<INSTALL_INTERFACE:include/RecursiveTools/vectorize.hh>
+    $<INSTALL_INTERFACE:include/RecursiveTools/pyfjtools.hh>
   PRIVATE
-    src/vectorize.cc
+    src/pyfjtools.cc
 )
 target_include_directories(pythiafjtools
   PUBLIC

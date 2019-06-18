@@ -1,5 +1,5 @@
-#ifndef PYTHIA_FASTJET_TOOLS_VECTORIZE_HH
-#define PYTHIA_FASTJET_TOOLS_VECTORIZE_HH
+#ifndef PYTHIA_FASTJET_TOOLS_HH
+#define PYTHIA_FASTJET_TOOLS_HH
 
 #include <fastjet/PseudoJet.hh>
 #include <Pythia8/Pythia.h>
